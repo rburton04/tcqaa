@@ -1,0 +1,72 @@
+hystrix host = http://192.168.1.54:58080/hystrix.stream
+
+From Bash:
+run load - while true; do curl "http://192.168.1.54:58080"; done
+
+1. Modified - selenium UI test point and run Conf-App tests
+
+2. add selenium, yml, hystrix project and yml
+
+3. Add ELK YML - good all in one ELK
+notes - https://elk-docker.readthedocs.io/
+sudo docker run -p 5601:5601 -p 9200:9200 -p 5044:5044 -it --name elk sebp/elk
+
+
+4. Add dockerbeat or file beat docker logs to ELK
+run on local container main using binary - /dockbeat/binary tcqaa
+6c download and copy dockbeat 
+docker cp foo.txt mycontainer:/foo.txt
+./dockbeat -c etc/dockbeat.yml
+
+5. Added gitlab plugin to jenkins added webhook - http://192.168.1.54:18080/project/selenium2-maven-project
+
+6. sudo docker run -p 5601:5601 -p 9200:9200 -p 5044:5044 -it --name elk sebp/elk
+
+6b - ssh container
+sudo docker exec -it <container-name> /bin/bash
+
+At the prompt, enter:
+
+# /opt/logstash/bin/logstash --path.data /tmp/logstash/data \
+    -e 'input { stdin { } } output { elasticsearch { hosts => ["localhost"] } }'
+
+add some stuff to create entries in Kibana
+
+
+
+
+
+tools
+VM Ubuntu 16.04
+Docker
+Docker-Compose
+
+GitBash
+VSTS Code
+Tight VNC
+Putty
+WinScp
+
+Chrome Plugins
+Selenium Object Finder
+Page Object Generator
+Firefox
+Selenium Builder 3
+
+Hystrix
+SonarQube
+Portainer
+Gitlab
+Jenkins
+Nexus
+Selenium Hub
+Selenium Nodes
+Postgres
+
+ELK
+DockBeat
+FileBeat
+c
+NewRelic - Server Infrastructure Monitoring
+App Monitoring
+
