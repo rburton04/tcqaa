@@ -66,7 +66,7 @@ Postgres
 ELK
 DockBeat
 FileBeat
-c
+
 NewRelic - Server Infrastructure Monitoring
 App Monitoring
 
