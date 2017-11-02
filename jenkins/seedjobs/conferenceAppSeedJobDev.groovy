@@ -33,7 +33,7 @@ def createCiJob(def jobName, def gitUrl, def pomFile) {
     }
     steps {
       maven {
-          goals('clean versions:set -DnewVersion=DEV-\${BUILD_NUMBER}')
+          goals('clean versions:set -DnewVersion=dev-\${BUILD_NUMBER}')
           mavenInstallation('Maven 3.3.3')
           rootPOM( pomFile )
           mavenOpts('-Xms512m -Xmx1024m')
