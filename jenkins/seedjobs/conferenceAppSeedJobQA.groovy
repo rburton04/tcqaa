@@ -3,7 +3,7 @@ def gitUrl = 'https://github.com/rburton04/conference-app'
 createCiJob("conference-app", gitUrl, "app/pom.xml")
 createSonarJob("conference-app", gitUrl, "app/pom.xml")
 createDockerBuildJob("conference-app", "app")
-createDockerStartJob("conference-app", "app", "48080")
+createDockerStartJob("conference-app", "app", "8086")
 createDockerStopJob("conference-app", "app")
 
 createCiJob("conference-app-monitoring", gitUrl, "monitoring/pom.xml")
@@ -15,7 +15,7 @@ createDockerStopJob("conference-app-monitoring", "monitoring")
 def createCiJob(def jobName, def gitUrl, def pomFile) {
   job("${jobName}-1-ci") {
     parameters {
-      stringParam("BRANCH", "master", "Define TAG or BRANCH to build from")
+      stringParam("BRANCH", "qa", "Define TAG or BRANCH to build from")
       stringParam("REPOSITORY_URL", "http://nexus:8081/content/repositories/releases/", "Nexus Release Repository URL")
     }
     scm {
@@ -76,7 +76,7 @@ def createCiJob(def jobName, def gitUrl, def pomFile) {
 def createSonarJob(def jobName, def gitUrl, def pomFile) {
   job("${jobName}-2-sonar") {
     parameters {
-      stringParam("BRANCH", "master", "Define TAG or BRANCH to build from")
+      stringParam("BRANCH", "qa", "Define TAG or BRANCH to build from")
     }
     scm {
       cloneWorkspace("${jobName}-1-ci")
