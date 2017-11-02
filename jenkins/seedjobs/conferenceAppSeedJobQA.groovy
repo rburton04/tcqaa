@@ -1,16 +1,11 @@
 def gitUrl = 'https://github.com/rburton04/conference-app'
 
-createCiJob("conference-app", gitUrl, "app/pom.xml")
-createSonarJob("conference-app", gitUrl, "app/pom.xml")
-createDockerBuildJob("conference-app", "app")
-createDockerStartJob("conference-app", "app", "8086")
-createDockerStopJob("conference-app", "app")
+createCiJob("conference-app-qa", gitUrl, "app/pom.xml")
+createSonarJob("conference-app-qa", gitUrl, "app/pom.xml")
+createDockerBuildJob("conference-app-qa", "app")
+createDockerStartJob("conference-app-qa", "app", "8086")
+createDockerStopJob("conference-app-qa", "app")
 
-createCiJob("conference-app-monitoring", gitUrl, "monitoring/pom.xml")
-createSonarJob("conference-app-monitoring", gitUrl, "monitoring/pom.xml")
-createDockerBuildJob("conference-app-monitoring", "monitoring")
-createDockerStartJob("conference-app-monitoring", "monitoring", "58080")
-createDockerStopJob("conference-app-monitoring", "monitoring")
 
 def createCiJob(def jobName, def gitUrl, def pomFile) {
   job("${jobName}-1-ci") {
@@ -192,22 +187,22 @@ def createDockerStopJob(def jobName, def folder) {
   }
 }
 
-buildPipelineView('Pipeline') {
+buildPipelineView('Pipeline-QA') {
     filterBuildQueue()
     filterExecutors()
-    title('Conference App CI Pipeline')
+    title('Conference App CI Pipeline-QA')
     displayedBuilds(5)
-    selectedJob("conference-app-1-ci")
+    selectedJob("conference-app-qa-1-ci")
     alwaysAllowManualTrigger()
     refreshFrequency(60)
 }
 
-listView('Conference App') {
+listView('Conference App-QA') {
     description('')
     filterBuildQueue()
     filterExecutors()
     jobs {
-        regex(/conference-app-.*/)
+        regex(/conference-app-qa-.*/)
     }
     columns {
         status()

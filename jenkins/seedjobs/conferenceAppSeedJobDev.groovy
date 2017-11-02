@@ -190,14 +190,14 @@ def createDockerStopJob(def jobName, def folder) {
 buildPipelineView('Pipeline-Dev') {
     filterBuildQueue()
     filterExecutors()
-    title('Conference App CI Pipeline')
+    title('Conference App CI Pipeline-Dev')
     displayedBuilds(5)
     selectedJob("conference-app-Dev-1-ci")
     alwaysAllowManualTrigger()
     refreshFrequency(60)
 }
 
-listView('Conference App') {
+listView('Conference App-Dev') {
     description('')
     filterBuildQueue()
     filterExecutors()
