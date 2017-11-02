@@ -6,11 +6,6 @@ createDockerBuildJob("conference-app", "app")
 createDockerStartJob("conference-app", "app", "48080")
 createDockerStopJob("conference-app", "app")
 
-createCiJob("conference-app-monitoring", gitUrl, "monitoring/pom.xml")
-createSonarJob("conference-app-monitoring", gitUrl, "monitoring/pom.xml")
-createDockerBuildJob("conference-app-monitoring", "monitoring")
-createDockerStartJob("conference-app-monitoring", "monitoring", "58080")
-createDockerStopJob("conference-app-monitoring", "monitoring")
 
 def createCiJob(def jobName, def gitUrl, def pomFile) {
   job("${jobName}-1-ci") {
