@@ -1,4 +1,4 @@
-def gitUrl="https://github.com/marcelbirkner/docker-ci-tool-stack"
+def gitUrl="https://github.com/rburton04/tcqaa"
 
 createDockerJob("docker-admin-version", "sudo /usr/bin/docker version", "")
 createDockerJob("docker-admin-list-running-container", "sudo /usr/bin/docker ps", "")
@@ -7,7 +7,7 @@ createDockerJob("docker-admin-build-jenkins-container", "cd jenkins && sudo /usr
 createDockerJob("docker-admin-start-jenkins-container", "sudo /usr/bin/docker run -d --name did_jenkins -p=28080:8080 jenkins", gitUrl)
 createDockerJob("docker-admin-stop-jenkins-container", 'sudo /usr/bin/docker stop \$(sudo /usr/bin/docker ps -a -q --filter="name=did_jenkins") && sudo /usr/bin/docker rm \$(sudo /usr/bin/docker ps -a -q --filter="name=did_jenkins")', "")
 
-def conferenceAppGitUrl="https://github.com/codecentric/conference-app"
+def conferenceAppGitUrl="https://github.com/rburton04/conference-app"
 createDockerJob("docker-conference-app-build-container", "cd app && sudo /usr/bin/docker build -t conferenceapp .", conferenceAppGitUrl)
 createDockerJob("docker-conference-app-start-container", "sudo /usr/bin/docker run -d --name conferenceapp -p=48080:8080 conferenceapp", conferenceAppGitUrl)
 createDockerJob("docker-conference-app-stop-container", 'sudo /usr/bin/docker stop \$(sudo /usr/bin/docker ps -a -q --filter="name=conferenceapp") && sudo /usr/bin/docker rm \$(sudo /usr/bin/docker ps -a -q --filter="name=conferenceapp")', " ")
