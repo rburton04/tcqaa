@@ -1,5 +1,5 @@
 def giturl = 'https://github.com/rburton04/conference-app-tests'
-job("selenium2-maven-project") {
+job("selenium2-Tests-project") {
   scm {
     git {
       remote {
