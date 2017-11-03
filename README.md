@@ -1,6 +1,6 @@
 # CI Tools Demo
 
-This GitHub repository contains Dockerfiles for running a set of Continuous Integration Tools with a single command. The diagram contains all tools used in the Docker containers.
+This GitHub repository contains Dockerfiles for running a set of Continuous Integration Tools. The diagram contains all tools used in the Docker containers.
 
 ![Docker CI Tools](screenshots/docker-ci-tools.png)
 
