@@ -10,7 +10,7 @@ chrome:
     ports:
       - "5901:5900"
 
-chrome:
+chrome2:
     image: selenium/node-chrome-debug:3.4.0-chromium
     links:
       - selenium-hub:hub
