@@ -10,6 +10,12 @@ chrome:
     ports:
       - "5901:5900"
 
+chrome:
+    image: selenium/node-chrome-debug:3.4.0-chromium
+    links:
+      - selenium-hub:hub
+    ports:
+      - "5903:5900"
 firefox:
     image: selenium/node-firefox-debug:3.4.0-chromium
     links:
